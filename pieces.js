@@ -5,7 +5,7 @@ const pieces = await reponse.json();
 for (let i = 0; i < pieces.length; i++) {
 
     const article = pieces[i];
-    
+
     // Récupération de l'élément du DOM qui accueillera les fiches
     const sectionFiches = document.querySelector(".fiches");
   
@@ -44,4 +44,36 @@ for (let i = 0; i < pieces.length; i++) {
     pieceElement.appendChild(stockElement);
 
  }
+ 
+
+
+ // Function pour trier les résultats de sortie par ordre croissant :
+
+ const boutonTrier = document.querySelector(".btn-trier");
+ 
+ boutonTrier.addEventListener('click', ()=> {
+
+    const piecesOrdonnes = Array.from(pieces);
+
+    piecesOrdonnes.sort((a,b) => {
+        return a.prix - b.prix;
+    });
+    console.log(piecesOrdonnes);
+ });
+
+
+
+
+ // Function pour filtrer les résultats en fonction du prix : 
+
+ const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+ boutonFiltrer.addEventListener('click' , ()=> {
+    const piecesFiltrees = pieces.filter((piece)=>{
+        return piece.prix <= 35;
+    });
+    console.log(piecesFiltrees);
+ });
+
+
  
