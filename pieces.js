@@ -62,8 +62,6 @@ for (let i = 0; i < pieces.length; i++) {
  });
 
 
-
-
  // Function pour filtrer les résultats en fonction du prix : 
 
  const boutonFiltrer = document.querySelector(".btn-filtrer");
@@ -76,4 +74,34 @@ for (let i = 0; i < pieces.length; i++) {
  });
 
 
- 
+ // Function filter decroissant
+const boutonFilterDecroissant = document.querySelector('.btn-trierDecroissant');
+
+boutonFilterDecroissant.addEventListener('click', () => {
+    // Creation d'un array à partir d'un autre array
+    const piecesDecroissantes = Array.from(pieces);
+
+    piecesDecroissantes.sort((a,b)=>{
+        return b.prix - a.prix;
+    });
+    console.log(piecesDecroissantes);
+
+});
+
+
+// function filter par avis
+const bouttonFiltrerParAvis = document.querySelector('.filtrerParAvis');
+
+bouttonFiltrerParAvis.addEventListener('click' , () => { 
+    pieces.filter( (piece) =>{
+        return piece.description;
+    } );
+});
+
+const noms = pieces.map(piece => piece.nom);
+for(let i = pieces.length -1 ; i >= 0; i--){
+   if(pieces[i].prix > 35){
+       noms.splice(i,1)
+   };
+};
+console.log(noms);
