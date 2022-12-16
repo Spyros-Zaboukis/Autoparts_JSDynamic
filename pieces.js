@@ -89,6 +89,9 @@ boutonFilterDecroissant.addEventListener('click', () => {
 });
 
 
+// Chap 4 Map liste :
+
+
 // function filter par avis
 const bouttonFiltrerParAvis = document.querySelector('.filtrerParAvis');
 
@@ -105,3 +108,15 @@ for(let i = pieces.length -1 ; i >= 0; i--){
    };
 };
 console.log(noms);
+
+//Création de la liste
+const abordablesElements = document.createElement('ul');
+//Ajout de chaque nom à la liste
+for(let i=0; i < noms.length ; i++){
+   const nomElement = document.createElement('li');
+   nomElement.innerText = noms[i];
+   abordablesElements.appendChild(nomElement)
+}
+// Ajout de l'en-tête puis de la liste au bloc résultats filtres
+document.querySelector('.abordables')
+   .appendChild(abordablesElements)
