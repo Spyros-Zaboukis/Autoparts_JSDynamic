@@ -90,7 +90,7 @@ boutonFilterDecroissant.addEventListener('click', () => {
 
 
 // Chap 4 Map liste :
-
+//--------------------
 
 // function filter par avis
 const bouttonFiltrerParAvis = document.querySelector('.filtrerParAvis');
@@ -120,3 +120,23 @@ for(let i=0; i < noms.length ; i++){
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables')
    .appendChild(abordablesElements)
+
+
+
+
+
+//Afficher les pieces disponibles
+//--------------------------------
+
+const piecesDisponibles = document.querySelector('.pieces-disponibles');
+
+const listeDePiecesDisponibles = document.createElement('ul');
+piecesDisponibles.appendChild(listeDePiecesDisponibles);
+
+pieces.map((piece) => {
+    if(piece.disponibilite){
+        const nomDePiece = document.createElement('li');
+        nomDePiece.innerText= `${piece.nom} ${piece.prix} €`;
+        listeDePiecesDisponibles.appendChild(nomDePiece); 
+    }
+});
