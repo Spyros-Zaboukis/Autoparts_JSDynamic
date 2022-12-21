@@ -93,18 +93,44 @@ genererPage(pieces);
 
 
 
- // Function pour filtrer les résultats en fonction du prix : 
+ // ici on récup l'input
+ const inputValue = document.querySelector('.inputRange');
+ inputValue.addEventListener('change', (e)=>{
+ const valueI = e.target.value;
+ console.log(valueI);
+ const piecesFiltrees = pieces.filter((piece)=>{
+    return piece.prix <= valueI;
+});
+console.log(piecesFiltrees);
+document.querySelector('.fiches').innerHTML='';
+genererPage(piecesFiltrees);
+ });
+ 
+  
 
- const boutonFiltrer = document.querySelector(".btn-filtrer");
 
- boutonFiltrer.addEventListener('click' , ()=> {
+
+// Pour filtrer les résultats en fonction du prix : 
+
+const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+boutonFiltrer.addEventListener('click', ()=>{
+
     const piecesFiltrees = pieces.filter((piece)=>{
         return piece.prix <= 35;
     });
     console.log(piecesFiltrees);
     document.querySelector('.fiches').innerHTML='';
     genererPage(piecesFiltrees);
- });
+});
+
+
+
+
+
+
+
+
 
 
 
